@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.mybatis.mapper.UserMapper"> <!--xml文件所在的包名和Mapper Interface所在的包名应该一致-->
+
+    <resultMap id="BaseResultMap" type="com.springboot.mybatis.entity.User">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <!--<id property="id" column="id"/>-->  <!-- column：主键在数据库中的列名,property：主键在pojo中的属性名 -->
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="realname" jdbcType="VARCHAR" property="realname" />
+    </resultMap>
+
+    <select id="getUserById" resultType="com.springboot.mybatis.entity.User">
+        USE Test
+        select * from Students where id = #{id}
+    </select>
+
+    <select id="getAllUser" resultType="User">
+        select * from Students
+    </select>
+
+</mapper>

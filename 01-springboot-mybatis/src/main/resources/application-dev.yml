@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: sa
+    password: sasa
+    url: jdbc:sqlserver://localhost\MSSQLSERVER2017:1433;DatabaseName=Test
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp  #jsp页面为什么要放在webapps文件夹下？ webapps是默认服务路径，但你可以在server.xml中配置其它服务路径
+#server.xml在tomcat安装目录下conf目录中，
+  #打开后，在</HOST>前边增加如：
+  #<Context path="/访问路径名" docBase="实际路径" dabug="0" reloadable="true" />
+  #jsp文件放到WEB-INF下, 就安全的多，用户一般无法通过地址栏访问的. 做项目时要把jsp页面都放在web-inf下面，目的是防止用户直接访问
+
+mybatis:
+  #配置mapper.xml文件所在的路径
+  mapper-locations: classpath:mapping/*Mapper.xml
+  #配置映射类所在的包名
+  type-aliases-package: com.springboot.mybatis.entity
+
+
+
+
+

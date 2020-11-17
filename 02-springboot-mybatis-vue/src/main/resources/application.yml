@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+
+spring:
+  application:
+    name: table-server
+  datasource:
+    username: sa
+    password: sasa
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=Test
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+mybatis:
+  #配置映射类所在的包名
+  type-aliases-package: com.springboot.vue.entity
+  #配置mapper.xml文件所在的路径
+  mapper-locations: classpath:mapper/*Mapper.xml
+
